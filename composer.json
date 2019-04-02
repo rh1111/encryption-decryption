@@ -1,0 +1,30 @@
+{
+    "name": "php-crypt",
+    "description": "PHP encryption, decryption",
+    "keywords": [
+        "Cryptography ",
+        "Encrypt",
+        "Decrypt",
+        "OpenSSL"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rahul Khandelwal",
+            "email": "rh1111@rediffmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "ext-openssl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpCrypt\\": "src/PhpCrypt/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    }
+}
