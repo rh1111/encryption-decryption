@@ -13,11 +13,12 @@ It uses PHP OpenSSL extension and let's you to use your custom security key.
 
 1. Clone the project
 
-```https://github.com/rh1111/encryption-decryption.git```
+```git clone https://github.com/rh1111/encryption-decryption.git```
 
 2. Run following command in your project root directory:
 
 ```
+>cd encryption-decryption
 composer install
 ```
 
@@ -26,11 +27,13 @@ composer install
 It's so easy to work with CryptFactory! Just take a look at following example:
 
 ```
+<?php
 require_once "bootstrap.php";
 use \PhpCrypt\CryptFactory;
 
 $crypt = CryptFactory::create();
 echo $crypt->encrypt("This is an important content!");
+?>
 ```
 
 ### Encryption
@@ -38,11 +41,13 @@ echo $crypt->encrypt("This is an important content!");
 The `encrypt()` method encrypts data. See following example.
 
 ```
+<?php
 require_once "bootstrap.php";
 use \PhpCrypt\CryptFactory;
 
 $crypt = CryptFactory::create();
 echo $crypt->encrypt("This is an important content!");
+?>
 ```
 
 * Encrypted data will be encoded via base64 algorithm to be maintainable easily anywhere.
@@ -53,12 +58,14 @@ echo $crypt->encrypt("This is an important content!");
 The `decrypt()` method decrypts data. See following example.
 
 ```
+<?php
 require_once "bootstrap.php";
 use \PhpCrypt\CryptFactory;
 
 $crypt = CryptFactory::create();
 $r = $crypt->encrypt("This is an important content!");
 echo $crypt->decrypt($r);
+?>
 ```
 
 *   Don't forget to set the same key you have used to encrypting the data.
@@ -75,15 +82,18 @@ You must keep the key and use it for whole the project lifetime.
 Following examples show how to set the security key with constructor and setter respectively:
 
 ```
+<?php
 require_once "bootstrap.php";
 use \PhpCrypt\CryptFactory;
 
 $crypt = CryptFactory::create(" THIS IS THE SECRET KEY");
 $r = $crypt->encrypt("This is the content!");
 echo $crypt->decrypt($r);
+?>
 ```
 
 ```
+<?php
 require_once "bootstrap.php";
 use \PhpCrypt\CryptFactory;
 
@@ -91,6 +101,7 @@ $crypt = CryptFactory::create();
 $crypt->setKey(" THIS IS THE SECRET KEY ");
 $r = $crypt->encrypt("This is the content!");
 echo $crypt->decrypt($r);
+?>
 ```
 
 *   Default cipher method is `AES-256-CBC`.
