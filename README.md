@@ -9,12 +9,16 @@ Cryptography tools for PHP projects
 PhpCrypt is a lightweight package for **encrypting**, **decrypting**.
 It uses PHP OpenSSL extension and let's you to use your custom security key.
 
-### Installation (via Composer)
+### Installation 
 
-Run following command in your project root directory:
+1. Clone the project
+
+```https://github.com/rh1111/encryption-decryption.git```
+
+2. Run following command in your project root directory:
 
 ```
-composer require phpcrypt:3.*
+composer install
 ```
 
 ### Getting Started
@@ -22,6 +26,7 @@ composer require phpcrypt:3.*
 It's so easy to work with PhpCrypt! Just take a look at following example:
 
 ```
+require_once "bootstrap.php";
 use \PhpCrypt\CryptFactory;
 
 $crypt = CryptFactory::create();
@@ -33,6 +38,7 @@ echo $crypt->encrypt("This is an important content!");
 The `encrypt()` method encrypts data. See following example.
 
 ```
+require_once "bootstrap.php";
 use \PhpCrypt\CryptFactory;
 
 $crypt = CryptFactory::create();
@@ -47,6 +53,7 @@ echo $crypt->encrypt("This is an important content!");
 The `decrypt()` method decrypts data. See following example.
 
 ```
+require_once "bootstrap.php";
 use \PhpCrypt\CryptFactory;
 
 $crypt = CryptFactory::create();
@@ -68,6 +75,7 @@ You must keep the key and use it for whole the project lifetime.
 Following examples show how to set the security key with constructor and setter respectively:
 
 ```
+require_once "bootstrap.php";
 use \PhpCrypt\CryptFactory;
 
 $crypt = CryptFactory::create(" THIS IS THE SECRET KEY");
@@ -76,6 +84,7 @@ echo $crypt->decrypt($r);
 ```
 
 ```
+require_once "bootstrap.php";
 use \PhpCrypt\CryptFactory;
 
 $crypt = CryptFactory::create();

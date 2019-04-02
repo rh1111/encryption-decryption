@@ -1,5 +1,5 @@
 {
-    "name": "php-crypt",
+    "name": "encryption-decryption",
     "description": "PHP encryption, decryption",
     "keywords": [
         "Cryptography ",

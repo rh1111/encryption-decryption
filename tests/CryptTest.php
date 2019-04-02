@@ -6,7 +6,7 @@
 
 namespace \PhpCrypt\Tests;
 
-require_once "bootstrap.php";
+require_once "../bootstrap.php";
 
 use \PhpCrypt\Crypt;
 use PHPUnit\Framework\TestCase;
