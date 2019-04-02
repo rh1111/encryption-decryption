@@ -112,10 +112,3 @@ To set your desired cipher method, use following method:
 $crypt->setMethod('AES-192-CBC');
 ```
 
-
-### Framework Integration
-
-You can install the package using Composer.
-While all of modern PHP frameworks supports Composer packages,
-you are able to use it in the most of popular frameworks easily.
-# encryption-decryption

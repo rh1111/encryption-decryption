@@ -8,8 +8,8 @@ namespace \PhpCrypt\Tests;
 
 require_once "../bootstrap.php";
 
-use \PhpCrypt\Crypt;
 use PHPUnit\Framework\TestCase;
+use \PhpCrypt\CryptFactory;
 
 class CryptTest extends TestCase
 {
@@ -17,7 +17,7 @@ class CryptTest extends TestCase
     {
         $plainText = 'Hello World';
 
-        $crypt = new Crypt();
+        $crypt = CryptFactory::create();
         $encrypted = $crypt->encrypt($plainText);
         $decrypted = $crypt->decrypt($encrypted);
 
@@ -29,7 +29,7 @@ class CryptTest extends TestCase
         $plainText = 'Hello World';
         $key = 'This is a secret key!';
 
-        $crypt = new Crypt($key);
+        $crypt = CryptFactory::create($key);
         $encrypted = $crypt->encrypt($plainText);
         $decrypted = $crypt->decrypt($encrypted);
 
@@ -41,7 +41,7 @@ class CryptTest extends TestCase
         $plainText = 'Hello World';
         $method = 'AES-192-CBC';
 
-        $crypt = new Crypt(null, $method);
+        $crypt = CryptFactory::create(null, $method);
         $encrypted = $crypt->encrypt($plainText);
         $decrypted = $crypt->decrypt($encrypted);
 
@@ -54,7 +54,7 @@ class CryptTest extends TestCase
         $method = 'AES-192-CBC';
         $key = 'This is a secret key!';
 
-        $crypt = new Crypt($key, $method);
+        $crypt = CryptFactory::create($key, $method);
         $encrypted = $crypt->encrypt($plainText);
         $decrypted = $crypt->decrypt($encrypted);
 
@@ -65,7 +65,7 @@ class CryptTest extends TestCase
     {
         $plainText = '';
 
-        $crypt = new Crypt();
+        $crypt = CryptFactory::create();
         $encrypted = $crypt->encrypt($plainText);
         $decrypted = $crypt->decrypt($encrypted);
 
@@ -77,7 +77,7 @@ class CryptTest extends TestCase
         $plainText = 'Hello World';
         $key = '';
 
-        $crypt = new Crypt($key);
+        $crypt = CryptFactory::create($key);
         $encrypted = $crypt->encrypt($plainText);
         $decrypted = $crypt->decrypt($encrypted);
 
@@ -89,7 +89,7 @@ class CryptTest extends TestCase
      */
     public function test_attempting_to_encrypt_decrypt_with_an_invalid_method()
     {
-        new Crypt(null, 'INVALID-SHIT');
+        CryptFactory::create(null, 'INVALID-SHIT');
     }
 
     /**
@@ -97,7 +97,7 @@ class CryptTest extends TestCase
      */
     public function test_attempting_to_decrypt_an_invalid_text()
     {
-        $crypt = new Crypt();
+        $crypt = CryptFactory::create();
         $crypt->decrypt('INVALID-SHIT');
     }
 }
