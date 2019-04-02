@@ -1,4 +1,4 @@
-# php-crypt
+# encryption-decryption
 
 Cryptography tools for PHP projects
 
@@ -6,7 +6,7 @@ Cryptography tools for PHP projects
 
 ### Overview
 
-PhpCrypt is a lightweight package for **encrypting**, **decrypting**.
+CryptFactory is a lightweight package for **encrypting**, **decrypting**.
 It uses PHP OpenSSL extension and let's you to use your custom security key.
 
 ### Installation 
@@ -23,7 +23,7 @@ composer install
 
 ### Getting Started
 
-It's so easy to work with PhpCrypt! Just take a look at following example:
+It's so easy to work with CryptFactory! Just take a look at following example:
 
 ```
 require_once "bootstrap.php";
@@ -46,7 +46,7 @@ echo $crypt->encrypt("This is an important content!");
 ```
 
 * Encrypted data will be encoded via base64 algorithm to be maintainable easily anywhere.
-* PhpCrypt would generate a key automatically when there was not anyone.
+* CryptFactory would generate a key automatically when there was not anyone.
 
 ### Decryption
 
@@ -65,7 +65,7 @@ echo $crypt->decrypt($r);
 
 ### Key
 
-PhpCrypt uses a secret key to encrypt and decrypt data.
+CryptFactory uses a secret key to encrypt and decrypt data.
 You can pass this key to `Crypt` instances or let it to generates a random one.
 To get the generated key, you can call `getKey()` method.
 To set your custom key, you can call `setKey()` method or pass it via constructor.
@@ -99,7 +99,7 @@ echo $crypt->decrypt($r);
 
 Cypher methods are algorithms to encrypt data.
 PHP OpenSSL extension supports multi cipher methods.
-In default, PhpCrypt uses `AES-256-CBC` method.
+In default, CryptFactory uses `AES-256-CBC` method.
 To see all supported cipher methods you can call following method:
 
 ```
